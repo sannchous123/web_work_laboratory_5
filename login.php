@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
     $full_name = trim($_POST['full_name'] ?? '');
     if (empty($full_name)) {
         $errors[] = 'ФИО обязательно.';
-    } elseif (mb_strlen($full_name) > 150) {
+  } elseif (strlen($full_name) > 150) {
         $errors[] = 'ФИО не более 150 символов.';
     } elseif (!preg_match('/^[a-zA-Zа-яА-ЯёЁ\s\-]+$/u', $full_name)) {
         $errors[] = 'ФИО: только буквы, пробелы, дефис.';
